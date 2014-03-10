@@ -24,7 +24,7 @@ gulp.task('example', function () {
 });
 
 gulp.task('connect', plugins.connect.server({
-  root: ['example'],
+  root: ['example/'],
   port: 9001,
   livereload: true
 }));
@@ -42,7 +42,7 @@ gulp.task('watch', ['connect'], function () {
   // Watch for changes in `app` folder
   gulp.watch([
       'example/*.html',
-      'js/**/*.js',
+      'example/js/**/*.js',
     ], function(event) {
       return gulp.src(event.path)
       .pipe(plugins.connect.reload());

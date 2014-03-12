@@ -52,6 +52,8 @@
     "karma-mocha": "~0.1.1",
     "karma-safari-launcher": "~0.1.1",
     "chai": "~1.9.0",
-    "karma-chai": "~0.1.0"
+    "karma-chai": "~0.1.0",
+    "gulp-changed": "~0.2.1",
+    "gulp-base64": "0.0.3"
   }
 }

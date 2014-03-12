@@ -2,13 +2,30 @@
 <html ng-app="angularAddToHomeScreen">
 <head>
   <title></title>
+  <style>
+    body {
+      background: #1d1d1d;
+      padding:0;
+      margin:0;
+    }
+  </style>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link rel="stylesheet" href="aaths.css" type="text/css">
+  <link rel="stylesheet" href="example.css" type="text/css">
 </head>
-<body>
+<body ng-controller="exampleCtrl">
 
-<div ng-add-to-home-screen></div>
+<div ng-add-to-home-screen close-callback="lol"></div>
 
 <script src="js/bower_components/ua-parser-js/src/ua-parser.js"></script>
 <script src="js/bower_components/angular/angular.js"></script>
 <script src="js/angular-add-to-home-screen.js"></script>
+<script>
+function exampleCtrl($scope) {
+  $scope.lol = function () {
+    alert('ya done closed it');
+  };
+}
+</script>
 </body>
 </html>

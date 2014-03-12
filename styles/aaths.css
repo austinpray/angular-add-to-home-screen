@@ -1,0 +1,21 @@
+.aaths-container {
+  font-size:1em;
+}
+
+.aaths-iOS6-icon, .aaths-iOS7-icon {
+  width:1em;
+  height:1em;
+  line-height:1em;
+  display: inline-block;
+  background-size: contain;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.aaths-iOS6-icon {
+  background-image: url('images/ios6share.png');
+}
+
+.aaths-iOS7-icon {
+  background-image: url('images/ios7share.png');
+}

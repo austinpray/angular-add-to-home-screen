@@ -10,6 +10,7 @@ gulp.task('clean', function () {
 
 gulp.task('scripts', function () {
   return gulp.src('js/**/*.js')
+    .pipe(plugins.changed('dist/'))
     .pipe(plugins.jshint('.jshintrc'))
     .pipe(plugins.jshint.reporter('default'))
     .pipe(plugins.concat('angular-add-to-home-screen.js'))
@@ -17,9 +18,20 @@ gulp.task('scripts', function () {
     .pipe(plugins.size());
 });
 
+gulp.task('styles', function () {
+  return gulp.src('styles/**/*.css')
+    .pipe(plugins.changed('dist/'))
+    .pipe(plugins.base64())
+    .pipe(gulp.dest('dist/'))
+});
+
 gulp.task('example', function () {
   return gulp.src(['vendor/**/*.js', 'dist/**/*.js'])
+    .pipe(plugins.changed('example/js'))
     .pipe(gulp.dest('example/js/'))
+    .pipe(gulp.src(['dist/**/*.css']))
+    .pipe(plugins.changed('example/'))
+    .pipe(gulp.dest('example/'))
     .pipe(plugins.size());
 });
 
@@ -29,7 +41,7 @@ gulp.task('connect', plugins.connect.server({
   livereload: true
 }));
 
-gulp.task('build', ['scripts'], function () {
+gulp.task('build', ['scripts', 'styles'], function () {
   gulp.start('example');
 });
 
@@ -49,6 +61,6 @@ gulp.task('watch', ['connect'], function () {
     });
 
   // Watch .js files
-  gulp.watch('js/**/*.js', ['build']);
+  gulp.watch(['js/**/*.js', 'styles/**/*.css'], ['build']);
 
 });

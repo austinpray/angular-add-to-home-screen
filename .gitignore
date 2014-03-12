@@ -1,4 +1,7 @@
+.commitdraft
+
 node_modules
 vendor
 example/
 !example/index.html
+!example/example.css

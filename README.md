@@ -3,11 +3,26 @@ angular-add-to-home-screen [![Build Status](https://travis-ci.org/austinpray/ang
 
 An AngularJS directive to display an "add to homescreen" dialog for iOS 7 and iOS 6
 
-Features
+Installation
 ---
-- ~~No dependencies~~ Doesn’t require jQuery
-- Bring Your Own Styling
-- Kept up-to-date by the Open Source community
+### bower
+```
+bower install angular-add-to-home-screen
+```
+
+### Manually
+[Hop on over to the releases page](https://github.com/austinpray/angular-add-to-home-screen/releases) and grab `angular-add-to-homescreen.js` and `aaths.css`
+
+or download the source code and use the files in the `dist/` folder
+
+Setup
+---
+1. Grab `dist/angular-add-to-home-screen.js` and include it in your javascript payload
+2. Import the module as a dependency
+```js
+angular.module('myApp', ['angularAddToHomeScreen']);
+```
+3. Include the classes from `styles/aaths.css` in your app's CSS :cool:
 
 Examples
 ---
@@ -16,15 +31,6 @@ Will show a dialog with the proper icons for the platform
 ```html
 <div ng-add-to-homescreen></div>
 ```
-
-Installation
----
-1. Grab `dist/angular-add-to-home-screen.js` and include it in your javascript payload
-2. Import the module as a dependency
-```js
-angular.module('myApp', ['angularAddToHomeScreen']);
-```
-3. Include the classes from `styles/aaths.css` in your app's CSS :cool:
 
 CSS API
 ---

@@ -22,7 +22,7 @@ gulp.task('styles', function () {
   return gulp.src('styles/**/*.css')
     .pipe(plugins.changed('dist/'))
     .pipe(plugins.base64())
-    .pipe(gulp.dest('dist/'))
+    .pipe(gulp.dest('dist/'));
 });
 
 gulp.task('example', function () {
@@ -47,6 +47,27 @@ gulp.task('build', ['scripts', 'styles'], function () {
 
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
+});
+
+var testFiles = [
+  'vendor/bower_components/ua-parser-js/src/ua-parser.js',
+  'vendor/bower_components/angular/angular.js',
+  'vendor/bower_components/angular-mocks/angular-mocks.js',
+  'js/**/*.js',
+  'test/**/*.js'
+];
+
+gulp.task('test', function() {
+  // Be sure to return the stream
+  return gulp.src(testFiles)
+    .pipe(plugins.karma({
+      configFile: 'karma.conf.js',
+      action: 'run'
+    }))
+    .on('error', function(err) {
+      // Make sure failed tests cause gulp to exit non-zero
+      throw err;
+    });
 });
 
 // Watch

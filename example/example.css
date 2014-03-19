@@ -1,0 +1,36 @@
+.aaths-container {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  position: relative;
+  background:#ecf0f1;
+  padding:0.25em;
+  padding-left: 2.8em;
+  min-height: 2.618em;
+}
+
+.aaths-instructions {
+  font-size: 1em;
+}
+
+.aaths-close {
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+  font-weight: 300;
+  position:absolute;
+  font-size:1.625em;
+  line-height: 0.75em;
+  width:1em;
+  height:1em;
+  text-align: center;
+  vertical-align: middle;
+  color:#fff;
+  top:0.35em;
+  left: 0.35em;
+  background:#2c3e50;
+  border-radius: 50%;
+}
+
+@media (min-width: 600px) {
+  .aaths-instructions {
+    font-size: 1.218em;
+    text-align: center;
+  }
+}

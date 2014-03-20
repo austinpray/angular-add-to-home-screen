@@ -47,7 +47,6 @@ angular.module('angularAddToHomeScreen')
         $scope.applicable = hsd.safari && (hsd.iOS7() || hsd.iOS6());
         $scope.closeText = "×";
         if($scope.applicable) {
-          console.log(iElm);
           iElm
             .addClass('aaths-container')
             .append(hydrateInstructions(hsd));

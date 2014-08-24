@@ -25,22 +25,6 @@ gulp.task('styles', function () {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('example', function () {
-  return gulp.src(['vendor/**/*.js', 'dist/**/*.js'])
-    .pipe(plugins.changed('example/js'))
-    .pipe(gulp.dest('example/js/'))
-    .pipe(gulp.src(['dist/**/*.css']))
-    .pipe(plugins.changed('example/'))
-    .pipe(gulp.dest('example/'))
-    .pipe(plugins.size());
-});
-
-gulp.task('connect', plugins.connect.server({
-  root: ['example/'],
-  port: 9001,
-  livereload: true
-}));
-
 gulp.task('build', ['scripts', 'styles'], function () {
   gulp.start('example');
 });

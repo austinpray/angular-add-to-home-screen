@@ -3,6 +3,9 @@ angular-add-to-home-screen [![Build Status](https://travis-ci.org/austinpray/ang
 
 An AngularJS directive to display an "add to homescreen" dialog for iOS 7 and iOS 6
 
+![iOS7](http://i.imgur.com/UVjLVWw.png)
+![iOS6](http://i.imgur.com/Ap4r995.png)
+
 Installation
 ---
 ### bower

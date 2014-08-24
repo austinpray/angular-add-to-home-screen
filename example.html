@@ -10,16 +10,18 @@
     }
   </style>
   <meta name="viewport" content="width=device-width, user-scalable=no">
-  <link rel="stylesheet" href="aaths.css" type="text/css">
+  <link rel="stylesheet" href="styles/aaths.css" type="text/css">
   <link rel="stylesheet" href="example.css" type="text/css">
 </head>
 <body ng-controller="exampleCtrl">
 
 <div ng-add-to-home-screen close-callback="lol"></div>
 
-<script src="js/bower_components/ua-parser-js/src/ua-parser.js"></script>
-<script src="js/bower_components/angular/angular.js"></script>
-<script src="js/angular-add-to-home-screen.js"></script>
+<script src="bower_components/ua-parser-js/src/ua-parser.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="js/angularAddToHomeScreen.js"></script>
+<script src="js/directives/ngAddToHomeScreen.js"></script>
+<script src="js/services/homeScreenDetector.js"></script>
 <script>
 function exampleCtrl($scope) {
   $scope.lol = function () {

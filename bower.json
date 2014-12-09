@@ -1,12 +1,20 @@
 {
   "name": "angular-add-to-home-screen",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "homepage": "https://github.com/austinpray/angular-add-to-home-screen",
   "authors": [
     "Austin Pray <austin@austinpray.com>"
   ],
   "description": "An AngularJS directive to display an \"add to homescreen\" dialog for iOS 7 and iOS 6",
-  "main": "dist/angular-add-to-home-screen.js",
+  "license": "MIT",
+  "main": [
+    "dist/angular-add-to-home-screen.js",
+    "dist/aaths.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/austinpray/angular-add-to-home-screen.git"
+  },
   "keywords": [
     "ios",
     "add",
@@ -20,7 +28,9 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "example.css",
+    "example.html"
   ],
   "dependencies": {
     "angular": "1.2.x - 1.3.x",

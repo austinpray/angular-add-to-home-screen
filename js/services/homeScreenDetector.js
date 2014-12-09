@@ -1,15 +1,15 @@
 'use strict';
 
 /**
- * 
+ *
  */
 angular.module('angularAddToHomeScreen')
   .factory('$homeScreenDetector', [function(){
-    
+
     var parser = new UAParser();
 
     function getMajorVersion (version) {
-      return version.split('.')[0];
+      return (typeof(version) === 'undefined') ? undefined : version.split('.')[0];
     }
 
     var Detector = function(options) {
@@ -22,6 +22,10 @@ angular.module('angularAddToHomeScreen')
 
     Detector.prototype.safari = function () {
       return this.result.browser.name === 'Mobile Safari';
+    };
+
+    Detector.prototype.iOS8 = function () {
+      return this.result.os.name === 'iOS' && getMajorVersion(this.result.os.version) === '8';
     };
 
     Detector.prototype.iOS7 = function () {

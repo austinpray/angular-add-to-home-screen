@@ -3,13 +3,19 @@
 angular.module('angularAddToHomeScreen')
   .directive('ngAddToHomeScreen', ['$homeScreenDetector', 'aathsLocales', function($homeScreenDetector, aathsLocales){
     var hydrateInstructions = function (hsdInstance) {
-      var device = hsdInstance.device() || "device";
+      var device = hsdInstance.device() || 'device';
       var instructions;
       var icon;
 
-      if(hsdInstance.iOS7() || hsdInstance.iOS6()) {
+      if(hsdInstance.iOS8() || hsdInstance.iOS7() || hsdInstance.iOS6()) {
         instructions = aathsLocales.en.iOS;
-        icon = hsdInstance.iOS7() === true ? 'iOS7' : 'iOS6';
+        if (hsdInstance.iOS8()) {
+          icon = 'iOS8';
+        } else if (hsdInstance.iOS7()) {
+          icon = 'iOS7';
+        } else {
+          icon = 'iOS6';
+        }
       }
 
       instructions = instructions
@@ -36,7 +42,7 @@ angular.module('angularAddToHomeScreen')
       // replace: true,
       transclude: true,
       // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-      link: function($scope, iElm, iAttrs, controller) {
+      link: function($scope, iElm) {
         $scope.aathsClose = function () {
           iElm.remove();
           if(angular.isFunction($scope.closeCallback)) {
@@ -45,7 +51,7 @@ angular.module('angularAddToHomeScreen')
         };
         var hsd = new $homeScreenDetector();
         $scope.applicable = hsd.safari && (hsd.iOS7() || hsd.iOS6());
-        $scope.closeText = "×";
+        $scope.closeText = '×';
         if($scope.applicable) {
           iElm
             .addClass('aaths-container')

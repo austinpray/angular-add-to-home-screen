@@ -62,7 +62,7 @@ angular.module('angularAddToHomeScreen')
           }
         };
         var hsd = new $homeScreenDetector();
-        $scope.applicable = hsd.safari && (hsd.iOS7() || hsd.iOS6());
+        $scope.applicable = hsd.safari && (hsd.iOS8() || hsd.iOS7() || hsd.iOS6());
         $scope.closeText = '×';
         if($scope.applicable) {
           iElm

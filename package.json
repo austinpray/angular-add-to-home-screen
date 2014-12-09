@@ -1,6 +1,6 @@
 {
   "name": "angular-add-to-home-screen",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "An AngularJS directive to display an \"add to homescreen\" dialog for iOS 7 and iOS 6",
   "main": "dist/angular-add-to-home-screen.js",
   "directories": {
@@ -21,7 +21,7 @@
     "bookmark",
     "android"
   ],
-  "author": "Austin Pray",
+  "author": "Austin Pray <austin@austinpray.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/austinpray/angular-add-to-home-screen/issues"

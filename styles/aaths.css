@@ -2,7 +2,9 @@
   font-size:1em;
 }
 
-.aaths-iOS6-icon, .aaths-iOS7-icon {
+.aaths-iOS6-icon,
+.aaths-iOS7-icon,
+.aaths-iOS8-icon {
   width:1em;
   height:1em;
   line-height:1em;
@@ -18,4 +20,8 @@
 
 .aaths-iOS7-icon {
   background-image: url('images/ios7share.png');
+}
+
+.aaths-iOS8-icon {
+  background-image: url('images/ios8share.png');
 }

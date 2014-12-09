@@ -15,13 +15,19 @@ angular.module('angularAddToHomeScreen', [])
 angular.module('angularAddToHomeScreen')
   .directive('ngAddToHomeScreen', ['$homeScreenDetector', 'aathsLocales', function($homeScreenDetector, aathsLocales){
     var hydrateInstructions = function (hsdInstance) {
-      var device = hsdInstance.device() || "device";
+      var device = hsdInstance.device() || 'device';
       var instructions;
       var icon;
 
-      if(hsdInstance.iOS7() || hsdInstance.iOS6()) {
+      if(hsdInstance.iOS8() || hsdInstance.iOS7() || hsdInstance.iOS6()) {
         instructions = aathsLocales.en.iOS;
-        icon = hsdInstance.iOS7() === true ? 'iOS7' : 'iOS6';
+        if (hsdInstance.iOS8()) {
+          icon = 'iOS8';
+        } else if (hsdInstance.iOS7()) {
+          icon = 'iOS7';
+        } else {
+          icon = 'iOS6';
+        }
       }
 
       instructions = instructions
@@ -48,7 +54,7 @@ angular.module('angularAddToHomeScreen')
       // replace: true,
       transclude: true,
       // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
-      link: function($scope, iElm, iAttrs, controller) {
+      link: function($scope, iElm) {
         $scope.aathsClose = function () {
           iElm.remove();
           if(angular.isFunction($scope.closeCallback)) {
@@ -56,8 +62,8 @@ angular.module('angularAddToHomeScreen')
           }
         };
         var hsd = new $homeScreenDetector();
-        $scope.applicable = hsd.safari && (hsd.iOS7() || hsd.iOS6());
-        $scope.closeText = "×";
+        $scope.applicable = hsd.safari && (hsd.iOS8() || hsd.iOS7() || hsd.iOS6()) && !hsd.fullscreen();
+        $scope.closeText = '×';
         if($scope.applicable) {
           iElm
             .addClass('aaths-container')
@@ -72,15 +78,15 @@ angular.module('angularAddToHomeScreen')
 'use strict';
 
 /**
- * 
+ *
  */
 angular.module('angularAddToHomeScreen')
   .factory('$homeScreenDetector', [function(){
-    
+
     var parser = new UAParser();
 
     function getMajorVersion (version) {
-      return version.split('.')[0];
+      return (typeof(version) === 'undefined') ? undefined : version.split('.')[0];
     }
 
     var Detector = function(options) {
@@ -95,6 +101,10 @@ angular.module('angularAddToHomeScreen')
       return this.result.browser.name === 'Mobile Safari';
     };
 
+    Detector.prototype.iOS8 = function () {
+      return this.result.os.name === 'iOS' && getMajorVersion(this.result.os.version) === '8';
+    };
+
     Detector.prototype.iOS7 = function () {
       return this.result.os.name === 'iOS' && getMajorVersion(this.result.os.version) === '7';
     };
@@ -105,6 +115,10 @@ angular.module('angularAddToHomeScreen')
 
     Detector.prototype.device = function () {
       return this.result.device.model;
+    };
+
+    Detector.prototype.fullscreen = function () {
+      return (("standalone" in window.navigator) && window.navigator.standalone) ? true : false;
     };
 
     return Detector;

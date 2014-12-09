@@ -40,6 +40,10 @@ angular.module('angularAddToHomeScreen')
       return this.result.device.model;
     };
 
+    Detector.prototype.fullscreen = function () {
+      return (("standalone" in window.navigator) && window.navigator.standalone) ? true : false;
+    };
+
     return Detector;
 
   }]);

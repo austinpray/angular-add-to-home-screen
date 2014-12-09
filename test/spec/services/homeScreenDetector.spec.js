@@ -11,6 +11,7 @@ var chromeUA = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.3
 
 describe("Service that detects what mobile OS the user is running", function () {
   beforeEach(function () {
+    delete window.navigator.standalone;
     module('angularAddToHomeScreen');
     inject(function(_$homeScreenDetector_) {
       $homeScreenDetector = _$homeScreenDetector_;
@@ -49,6 +50,18 @@ describe("Service that detects what mobile OS the user is running", function () 
   it('should detect device as iPhone', function() {
     var hsd = new $homeScreenDetector({ customUA: iOS7UA });
     expect(hsd.device()).to.equal('iPhone');
+  });
+
+  it('should detect fullscreen mode if in fullscreen mode', function() {
+    window.navigator.standalone = true;
+    var hsd = new $homeScreenDetector({ customUA: iOS8UA });
+    expect(hsd.fullscreen()).to.be.true;
+  });
+
+  it('should detect fullscreen mode as false if not currently fullscreen', function() {
+    window.navigator.standalone = false;
+    var hsd = new $homeScreenDetector({ customUA: iOS8UA });
+    expect(hsd.fullscreen()).to.be.false;
   });
 
   it('should not give bogus results', function () {

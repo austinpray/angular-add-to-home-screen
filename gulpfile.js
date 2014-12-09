@@ -5,7 +5,7 @@ var gulp = require('gulp');
 var plugins = require('gulp-load-plugins')();
 
 gulp.task('clean', function () {
-  return gulp.src(['dist/', 'example/js/'], {read: false}).pipe(plugins.clean());
+  return gulp.src(['dist/'], {read: false}).pipe(plugins.clean());
 });
 
 gulp.task('scripts', function () {
@@ -25,18 +25,16 @@ gulp.task('styles', function () {
     .pipe(gulp.dest('dist/'));
 });
 
-gulp.task('build', ['scripts', 'styles'], function () {
-  gulp.start('example');
-});
+gulp.task('build', ['scripts', 'styles']);
 
 gulp.task('default', ['clean'], function () {
   gulp.start('build');
 });
 
 var testFiles = [
-  'vendor/bower_components/ua-parser-js/src/ua-parser.js',
-  'vendor/bower_components/angular/angular.js',
-  'vendor/bower_components/angular-mocks/angular-mocks.js',
+  'bower_components/ua-parser-js/src/ua-parser.js',
+  'bower_components/angular/angular.js',
+  'bower_components/angular-mocks/angular-mocks.js',
   'js/**/*.js',
   'test/**/*.js'
 ];
@@ -55,17 +53,7 @@ gulp.task('test', function() {
 });
 
 // Watch
-gulp.task('watch', ['connect'], function () {
-  // Watch for changes in `app` folder
-  gulp.watch([
-      'example/*.html',
-      'example/js/**/*.js',
-    ], function(event) {
-      return gulp.src(event.path)
-      .pipe(plugins.connect.reload());
-    });
-
+gulp.task('watch', function () {
   // Watch .js files
   gulp.watch(['js/**/*.js', 'styles/**/*.css'], ['build']);
-
 });

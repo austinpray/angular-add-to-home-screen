@@ -1,6 +1,5 @@
-.commitdraft
-
 node_modules
 bower_components
 
+.commitdraft
 .DS_Store

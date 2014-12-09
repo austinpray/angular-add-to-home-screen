@@ -15,9 +15,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'vendor/bower_components/ua-parser-js/src/ua-parser.js',
-      'vendor/bower_components/angular/angular.js',
-      'vendor/bower_components/angular-mocks/angular-mocks.js',
+      'bower_components/ua-parser-js/src/ua-parser.js',
+      'bower_components/angular/angular.js',
+      'bower_components/angular-mocks/angular-mocks.js',
       'js/**/*.js',
       'test/**/*.js'
     ],

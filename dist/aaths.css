@@ -2,7 +2,9 @@
   font-size:1em;
 }
 
-.aaths-iOS6-icon, .aaths-iOS7-icon {
+.aaths-iOS6-icon,
+.aaths-iOS7-icon,
+.aaths-iOS8-icon {
   width:1em;
   height:1em;
   line-height:1em;
@@ -17,5 +19,9 @@
 }
 
 .aaths-iOS7-icon {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAA7ElEQVRIx2NgGAjAWvWbC4jPAjELxYaxVP7iYa78+Z2x/Nt/IPsD0FBWSlzGDTTsK1PF9x9Aw/4DDf3LUvXrI1CcgxzD2Fkqf35iqvjxman8uwqQDzLQF2j4F6Dh74F8HlIMYwFqego06DcQa0DF/oNooKFhQLnnQP5rksMUqIENif0fmzgl4fmf2kmHeANBSQIXxmYgXvVAghHK2QPETUDciIQP4jDQA4iLoLgQSs+DOwBqYDklXgbpp7aBFTQ3sGLYu7B8YGOZiMxBmpcHwsDB72Wqu5D2Xqa6gZuhZRs6LsAhjo43oxtIFQwA4xh4sAyrR2cAAAAASUVORK5CYII=);
+}
+
+.aaths-iOS8-icon {
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAcCAYAAABh2p9gAAAA7ElEQVRIx2NgGAjAWvWbC4jPAjELxYaxVP7iYa78+Z2x/Nt/IPsD0FBWSlzGDTTsK1PF9x9Aw/4DDf3LUvXrI1CcgxzD2Fkqf35iqvjxman8uwqQDzLQF2j4F6Dh74F8HlIMYwFqego06DcQa0DF/oNooKFhQLnnQP5rksMUqIENif0fmzgl4fmf2kmHeANBSQIXxmYgXvVAghHK2QPETUDciIQP4jDQA4iLoLgQSs+DOwBqYDklXgbpp7aBFTQ3sGLYu7B8YGOZiMxBmpcHwsDB72Wqu5D2Xqa6gZuhZRs6LsAhjo43oxtIFQwA4xh4sAyrR2cAAAAASUVORK5CYII=);
 }

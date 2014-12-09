@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="angularAddToHomeScreen">
+<html ng-app="myApp">
 <head>
   <title></title>
   <style>
@@ -23,11 +23,13 @@
 <script src="js/directives/ngAddToHomeScreen.js"></script>
 <script src="js/services/homeScreenDetector.js"></script>
 <script>
-function exampleCtrl($scope) {
+var myApp = angular.module('myApp',['angularAddToHomeScreen']);
+
+myApp.controller('exampleCtrl', ['$scope', function($scope) {
   $scope.lol = function () {
     alert('ya done closed it');
   };
-}
+}]);
 </script>
 </body>
 </html>

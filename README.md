@@ -1,7 +1,7 @@
 angular-add-to-home-screen [![Build Status](https://travis-ci.org/austinpray/angular-add-to-home-screen.svg?branch=0.1.2)](https://travis-ci.org/austinpray/angular-add-to-home-screen)
 =========================
 
-An AngularJS directive to display an "add to homescreen" dialog for iOS 8, iOS 7 and iOS 6.
+An AngularJS directive to display an "add to homescreen" dialog for iOS.
 
 [Try it out](http://rawgit.com/austinpray/angular-add-to-home-screen/master/example.html) (hint: your user agent needs to identify as an iOS device).
 

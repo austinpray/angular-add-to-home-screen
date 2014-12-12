@@ -49,7 +49,7 @@ div.aaths-container
   div.aaths-instructions
     span.aaths-iOS6-icon // "share" icon if iOS6
     span.aaths-iOS7-icon // "share" icon if iOS7
-    span.aaths-iOS8-icon // "share" icon if iOS7
+    span.aaths-iOS8-icon // "share" icon if iOS8
 ```
 
 ### why?

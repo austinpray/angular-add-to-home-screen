@@ -15,11 +15,6 @@ Installation
 bower install angular-add-to-home-screen
 ```
 
-### Manually
-[Hop on over to the releases page](https://github.com/austinpray/angular-add-to-home-screen/releases) and grab `angular-add-to-homescreen.js` and `aaths.css`
-
-or download the source code and use the files in the `dist/` folder
-
 Setup
 ---
 1. Grab `dist/angular-add-to-home-screen.js` and include it in your javascript payload

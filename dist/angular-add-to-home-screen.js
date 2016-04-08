@@ -19,9 +19,12 @@ angular.module('angularAddToHomeScreen')
       var instructions;
       var icon;
 
-      if(hsdInstance.iOS8() || hsdInstance.iOS7() || hsdInstance.iOS6()) {
+
+      if(hsdInstance.iOS9() || hsdInstance.iOS8() || hsdInstance.iOS7() || hsdInstance.iOS6()) {
         instructions = aathsLocales.en.iOS;
-        if (hsdInstance.iOS8()) {
+        if (hsdInstance.iOS9()) {
+          icon = 'iOS8';
+        } else if (hsdInstance.iOS8()) {
           icon = 'iOS8';
         } else if (hsdInstance.iOS7()) {
           icon = 'iOS7';
@@ -55,6 +58,7 @@ angular.module('angularAddToHomeScreen')
       transclude: true,
       // compile: function(tElement, tAttrs, function transclude(function(scope, cloneLinkingFn){ return function linking(scope, elm, attrs){}})),
       link: function($scope, iElm) {
+
         $scope.aathsClose = function () {
           iElm.remove();
           if(angular.isFunction($scope.closeCallback)) {
@@ -62,7 +66,7 @@ angular.module('angularAddToHomeScreen')
           }
         };
         var hsd = new $homeScreenDetector();
-        $scope.applicable = hsd.safari && (hsd.iOS8() || hsd.iOS7() || hsd.iOS6()) && !hsd.fullscreen();
+        $scope.applicable = hsd.safari && (hsd.iOS9() || hsd.iOS8() || hsd.iOS7() || hsd.iOS6()) && !hsd.fullscreen();
         $scope.closeText = '×';
         if($scope.applicable) {
           iElm
@@ -101,6 +105,10 @@ angular.module('angularAddToHomeScreen')
       return this.result.browser.name === 'Mobile Safari';
     };
 
+    Detector.prototype.iOS9 = function () {
+      return this.result.os.name === 'iOS' && getMajorVersion(this.result.os.version) === '9';
+    };
+    
     Detector.prototype.iOS8 = function () {
       return this.result.os.name === 'iOS' && getMajorVersion(this.result.os.version) === '8';
     };

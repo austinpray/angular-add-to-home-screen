@@ -24,10 +24,14 @@ angular.module('angularAddToHomeScreen')
       return this.result.browser.name === 'Mobile Safari';
     };
 
+    Detector.prototype.iOS10 = function () {
+      return this.result.os.name === 'iOS' && getMajorVersion(this.result.os.version) === '10';
+    };
+
     Detector.prototype.iOS9 = function () {
       return this.result.os.name === 'iOS' && getMajorVersion(this.result.os.version) === '9';
     };
-    
+
     Detector.prototype.iOS8 = function () {
       return this.result.os.name === 'iOS' && getMajorVersion(this.result.os.version) === '8';
     };

@@ -29,7 +29,7 @@ Examples
 ### Basic
 Will show a dialog with the proper icons for the platform
 ```html
-<div ng-add-to-homescreen></div>
+<div ng-add-to-home-screen></div>
 ```
 
 CSS API
